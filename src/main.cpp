@@ -22,6 +22,7 @@ int main() {
             DrawFPS(10, 10);
            
             DrawText("work ", 10, 40, 20, RAYWHITE);
+            DrawCircle(120, 300, 40, YELLOW);
         EndDrawing();
     }
 
