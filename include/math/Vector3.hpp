@@ -1,5 +1,9 @@
 #pragma once
 #include <cmath>
+#include <iostream>
+
+// for debuging
+#include <cassert>
 
 
 
@@ -75,6 +79,19 @@ namespace phys::math
                 return true;
         }
 
+        inline float& operator[](int i)
+        {
+            assert(i >= 0 && i < 3);
+            float* ptr = &x;
+            return ptr[i];
+        }
+        inline float operator[](int i) const
+        {
+            assert(i >= 0 && i < 3);
+            const float* ptr = &x;
+            return ptr[i];
+        }
+
         inline float dotProduct(const Vector3& v) const
         {
             return x * v.x + y * v.y + z * v.z ;
@@ -96,10 +113,26 @@ namespace phys::math
             float L = 1 / lenght;
             return {x*L, y*L, z*L } ;
         }
+        inline Vector3 reflect(const Vector3& n) const
+        {
+            return (*this) - n * (this->dotProduct(n) * 2.0f); 
+        }
+        inline Vector3 project(const Vector3& v) const
+        {
+            return v * (this->dotProduct(v) / v.lengthSq());
+        }
+
 
         inline static Vector3 Zero() { return {0,0,0}; }
 
     };
 
+    inline Vector3 operator*(float s, const Vector3& v) { return v * s; }
+
+    inline std::ostream& operator<<(std::ostream& os, const Vector3& v) 
+    {
+        os <<"[" << v.x << ", " << v.y << ", " << v.z << "]"; 
+        return os;
+    }
     
 }
