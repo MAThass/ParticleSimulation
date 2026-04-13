@@ -7,6 +7,7 @@ struct AppConfig {
     int windowWidth;
     int windowHeight;
     std::string windowTitle;
+    int fps;
 
     float gravity;
     int particleCount;
@@ -23,6 +24,8 @@ struct AppConfig {
             config.windowWidth = data["window"]["width"].value_or(800);
             config.windowHeight = data["window"]["height"].value_or(600);
             config.windowTitle = data["window"]["title"].value_or("Sim");
+            config.fps = data["window"]["fps"].value_or(60);
+
 
             config.gravity = data["physics"]["gravity"].value_or(-9.81f);
             config.particleCount = data["physics"]["particle_count"].value_or(1000);

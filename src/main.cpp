@@ -1,15 +1,14 @@
 #include "raylib.h"
 #include <vector>
+#include "Config.hpp"
 
 int main() {
-    
-    const int screenWidth = 1200;
-    const int screenHeight = 800;
-    InitWindow(screenWidth, screenHeight, "Particle - Parallel Simulation");
+    AppConfig cfg = AppConfig::load("../config.toml");
+    InitWindow(cfg.windowWidth, cfg.windowHeight, cfg.windowTitle.c_str());
 
 
 
-    SetTargetFPS(120); 
+    SetTargetFPS(cfg.fps); 
 
     
     while (!WindowShouldClose()) {

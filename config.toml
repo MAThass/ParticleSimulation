@@ -2,6 +2,7 @@
 width = 1280
 height = 720
 title = "Parallel Particle Simulation"
+fps = 60
 
 [physics]
 gravity = -9.81

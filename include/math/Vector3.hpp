@@ -125,6 +125,7 @@ namespace phys::math
 
         inline static Vector3 Zero() { return {0,0,0}; }
 
+
     };
 
     inline Vector3 operator*(float s, const Vector3& v) { return v * s; }
