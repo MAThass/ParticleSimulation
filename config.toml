@@ -1,0 +1,12 @@
+[window]
+width = 1280
+height = 720
+title = "Parallel Particle Simulation"
+
+[physics]
+gravity = -9.81
+particle_count = 1000
+box_size = 100.0
+box_width = 100.0
+box_height = 100.0
+box_lenght = 100.0

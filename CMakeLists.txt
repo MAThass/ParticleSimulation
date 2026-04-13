@@ -11,12 +11,18 @@ FetchContent_Declare(
   GIT_REPOSITORY https://github.com/raysan5/raylib.git
   GIT_TAG        5.0
 )
+FetchContent_Declare(
+  tomlplusplus
+  GIT_REPOSITORY https://github.com/marzer/tomlplusplus.git
+  GIT_TAG        v3.4.0
+)
+
 
 
 set(BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 
 FetchContent_MakeAvailable(raylib)
-
+FetchContent_MakeAvailable(tomlplusplus)
 
 find_package(TBB REQUIRED)
 
@@ -33,6 +39,7 @@ add_executable(${PROJECT_NAME}
 
 
 target_include_directories(${PROJECT_NAME} PRIVATE include)
+target_link_libraries(${PROJECT_NAME} PRIVATE tomlplusplus::tomlplusplus)
 
 
 target_link_libraries(${PROJECT_NAME} 
