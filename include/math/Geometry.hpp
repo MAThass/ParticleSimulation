@@ -18,7 +18,13 @@ namespace phys::geometry
     {
         math::Vector3 center;
         math::Vector3 normal;
+        math::Vector3 up;
         float width;
         float height;
+    };
+
+    struct AABB {
+        math::Vector3 min;
+        math::Vector3 max;
     };
 }

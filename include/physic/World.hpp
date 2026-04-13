@@ -1,4 +1,6 @@
-
+#include "Geometry.hpp"
+#include "Collision.hpp"
+#include "Vector3.hpp"
 
 namespace phys::math 
 {   
